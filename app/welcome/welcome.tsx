@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import logoDark from "./logo-dark.svg";
 import logoLight from "./logo-light.svg";
 
@@ -26,9 +27,9 @@ export function Welcome() {
             </p>
             <ul>
               <li>
-                <a
+                <Link
                   className="group flex items-center gap-3 self-stretch p-3 leading-normal text-blue-700 hover:underline dark:text-blue-500"
-                  href="/daisyui-demo"
+                  to="/daisyui-demo"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +59,7 @@ export function Welcome() {
                     />
                   </svg>
                   DaisyUI Demo
-                </a>
+                </Link>
               </li>
               {resources.map(({ href, text, icon }) => (
                 <li key={href}>

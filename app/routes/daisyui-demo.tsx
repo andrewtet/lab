@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import type { Route } from "./+types/daisyui-demo";
 
 export function meta({}: Route.MetaArgs) {
@@ -113,7 +114,7 @@ export default function DaisyUIDemo() {
 
         {/* Link to home */}
         <div className="text-center">
-          <a href="/" className="btn btn-outline">Back to Home</a>
+          <Link to="/" className="btn btn-outline">Back to Home</Link>
         </div>
       </div>
     </div>
