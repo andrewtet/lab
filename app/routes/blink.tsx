@@ -30,18 +30,20 @@ export async function action({ request }: Route.ActionArgs) {
     // Setup the system (this will attempt to login)
     await blink.setupSystem();
     
+    // Note: In a production app, store session/account data securely server-side
+    // rather than returning to the client
     return { 
       success: true, 
-      message: "Login successful! System setup complete.",
-      accountId: blink.accountId,
-      region: blink.region
+      message: "Login successful! System setup complete."
     };
   } catch (error: any) {
-    console.error("Blink login error:", error);
-    const errorMessage = error?.message || error?.toString() || "Login failed. Please check your credentials.";
+    // Log error for debugging, but sanitize user-facing message
+    console.error("Blink login error:", error?.code || "UNKNOWN");
+    
+    // Return generic error to avoid exposing internal details
     return { 
       success: false, 
-      error: errorMessage
+      error: "Login failed. Please check your credentials and try again."
     };
   }
 }

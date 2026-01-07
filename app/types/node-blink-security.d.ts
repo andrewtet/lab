@@ -6,19 +6,19 @@ declare module "node-blink-security" {
       device_name?: string;
     });
 
-    cameras: any;
+    cameras: Record<string, unknown>;
     idTable: Record<string, string>;
-    networks: any;
+    networks: Record<string, unknown>;
     accountId: string;
     region: string;
     regionId: string;
 
     setupSystem(systemNameOrId?: string): Promise<void>;
     refresh(): Promise<void>;
-    getSummary(): Promise<any>;
+    getSummary(): Promise<unknown>;
     getCameraThumbs(): Promise<void>;
-    getVideos(page: number, date: Date): Promise<any>;
-    getEvents(): Promise<any>;
+    getVideos(page: number, date: Date): Promise<unknown>;
+    getEvents(): Promise<unknown>;
     isOnline(): Promise<boolean>;
     getLastMotions(): Promise<void>;
     isArmed(): Promise<boolean>;
@@ -26,6 +26,6 @@ declare module "node-blink-security" {
     getCameras(): Promise<void>;
     getLinks(): Promise<void>;
     getIDs(): Promise<void>;
-    getClients(): Promise<any>;
+    getClients(): Promise<unknown>;
   }
 }
